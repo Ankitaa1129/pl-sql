@@ -1,0 +1,26 @@
+DECLARE
+
+-- this  is a single line comment
+
+/* this is a multi line comment */
+
+NUMID  NUMBER:=2000;
+name VARCHAR2(10):='ankita';
+
+newnum  constant NUMBER:=23;
+
+BEGIN
+
+DBMS_OUTPUT.PUT_LINE(name);
+DBMS_OUTPUT.PUT_LINE(NUMID);
+DBMS_OUTPUT.PUT_LINE('whatever value  i give to a variable in declare block its get overriden by the value we assign in
+begin block ;;;;;; lets see this now ');
+
+NUMID:=6000000;
+DBMS_OUTPUT.PUT_LINE(NUMID);
+
+DBMS_OUTPUT.PUT_LINE('BUT when we write constant to variable during declaration then we cant change its value in begin block');
+
+DBMS_OUTPUT.PUT_LINE(newnum);
+
+END;
