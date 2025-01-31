@@ -1,0 +1,32 @@
+DECLARE
+
+num NUMBER:=90;
+-- this is global variable
+nextnum NUMBER:=10;
+
+BEGIN
+-- now for local variable
+   DECLARE
+   NUM2 NUMBER;
+   
+   BEGIN
+   
+   NUM2:=90;
+ DBMS_OUTPUT.PUT_LINE(NUM2);
+ --this works as this is local scope
+
+   END;
+   --this a loop oF declare begin end inside begin is local scope and variable inside it is local variable
+--DBMS_OUTPUT.PUT_LINE(NUM2);  this didnt work because this is local scope variable num2 and we want to output it outside local scope
+
+
+ WHILE nextnum <20
+LOOP 
+dbms_output.put_line('this is the ' || nextnum);
+nextnum:=nextnum+1;
+
+END LOOP;
+--this is whilw loop
+
+
+END;
