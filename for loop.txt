@@ -1,0 +1,19 @@
+DECLARE
+num NUMBER:=10;
+BEGIN
+FOR num in 10..20
+LOOP
+DBMS_OUTPUT.PUT_LINE('this is the number ' || num);
+end LOOP;
+
+-- for reverse order 
+FOR num in REVERSE 10..20
+LOOP
+DBMS_OUTPUT.PUT_LINE('this is the number ' || num);
+end LOOP;
+
+
+END;
+
+
+-------------------this is for loop----------------------
