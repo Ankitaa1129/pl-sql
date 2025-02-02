@@ -1,0 +1,64 @@
+DECLARE
+c_id number:=10;
+--c_id customer.customer_id%type:=10
+-- so instead of writing c_id number we can use c_id customer.customer_id%type.
+-- its better to always use %type....
+
+c_name VARCHAR2(50);
+-- c_name  customer.first_name%type ;
+c_add VARCHAR2(50);
+
+-- % type is that if customer.customer_id is of number type then c_id is also number
+-- if customer.first_name is of  varchar type then name is also varchar
+
+BEGIN
+
+--- lets try to fetch data from database---------
+
+--in pl/sql we need to fetch the data from database and store it in a pl/sql variable... for that we use select INTO  statement--
+
+select FIRST_NAME ,COUNTRY into c_name , c_add 
+from CUSTOMER
+where  CUSTOMER_ID=c_id;
+
+DBMS_OUTPUT.PUT_LINE('name is : ' || c_name);
+DBMS_OUTPUT.PUT_LINE('country is : ' || c_add);
+
+END;
+
+
+
+
+
+
+
+
+
+---- INSERTING data into datatype----------
+
+
+-- lets see inserting data into database---
+DECLARE 
+c_id  customer.customer_id%type:=16;
+c_fname customer.first_name%type :='ankita';
+c_lname customer.last_name%type :='anku';
+c_mname customer.middle_name%type :='A';
+c_add1 customer.address_line1%type :='somwari sadan 28';
+c_add2 customer.address_line2%type :='Bihar';
+c_city customer.city%type :='samastipur';
+c_country customer.country%type :='India';
+c_date_added CUSTOMER.DATE_ADDED%type :=sysdate;
+c_region customer.region%type :='North';
+
+BEGIN
+INSERT INTO customer(customer_id,first_name,last_name,middle_name,address_line1,address_line2,city,country,date_added,region)
+VALUES (c_id,c_fname,c_lname,c_mname,c_add1,c_add2,c_city,c_country,c_date_added,c_region);
+
+COMMIT;
+
+DBMS_OUTPUT.PUT_LINE('Data successfully inserted');
+
+END;
+
+
+-- this is the data insertion through this we insert our data to customer table---
