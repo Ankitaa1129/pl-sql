@@ -1,0 +1,29 @@
+------------ fetching data from database--------------------
+
+DECLARE
+c_id number:=10;
+c_name VARCHAR2(50);
+c_add VARCHAR2(50);
+
+BEGIN
+
+--- lets try to fetch data from database---------
+
+--in pl/sql we need to fetch the data from database and store it in a pl/sql variable... for that we use select INTO  statement--
+
+select FIRST_NAME ,COUNTRY into c_name , c_add 
+from CUSTOMER
+where  CUSTOMER_ID=c_id;
+
+DBMS_OUTPUT.PUT_LINE('name is : ' || c_name);
+DBMS_OUTPUT.PUT_LINE('country is : ' || c_add);
+
+END;
+
+-- so basically when we know that this condition return only one row or one value from database then we use select into 
+because if we use sekect into and it returns two value then it throws error so for only one data or value we use select 
+into------------
+
+
+so int this way we fetch data from database and store it in any local variable and after storing it to local variable
+we can do whatever we want to do
