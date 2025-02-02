@@ -1,0 +1,25 @@
+DECLARE 
+
+BEGIN 
+--ADD_CUSTOMER('20','rohini','sinha','R','near choupal 56',null,'patna','India',sysdate,'east');
+
+--but when we call procedure in this way this way we have to write in same order as it is declared
+ADD_CUSTOMER
+(
+c_id  =>21,
+c_fname =>'rashi',
+c_lname =>'singh',
+c_mname =>'R',
+c_add1 =>'oshi hill 12',
+c_add2 =>NULL,
+c_city =>'patna',
+c_country =>'bihar',
+c_date_added =>sysdate,
+c_region =>'East'
+);
+
+--when we are calling procedure ion thia way then order is not important we can use any order write anything up and down
+
+END;
+
+--- these are two methods of calling procedure-------
