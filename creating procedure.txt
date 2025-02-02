@@ -1,0 +1,34 @@
+-- So basically when we simply add any data in database we dont have name for that its anonymous data
+--so we use procedure whose name is add_customer , so we use add_customer procedure and its the syntax of creating procedure
+
+-- lets understand creating procedure
+
+
+CREATE OR REPLACE PROCEDURE ADD_CUSTOMER
+(
+c_id IN NUMBER,
+c_fname IN VARCHAR2,
+c_lname IN VARCHAR2,
+c_mname IN VARCHAR2,
+c_add1 IN VARCHAR2,
+c_add2 IN VARCHAR2,
+c_city IN VARCHAR2,
+c_country IN VARCHAR2,
+c_date_added IN DATE,
+c_region IN VARCHAR2
+)
+AS
+BEGIN 
+INSERT INTO customer(customer_id,first_name,last_name,middle_name,address_line1,address_line2,city,country,date_added,region)
+VALUES (c_id,c_fname,c_lname,c_mname,c_add1,c_add2,c_city,c_country,c_date_added,c_region);
+
+
+COMMIT;
+
+DBMS_OUTPUT.PUT_LINE('Data successfully inserted');
+
+END ADD_CUSTOMER;
+
+select * from customer;
+
+-- all this is stored in procedure section under ADD_CUSTOMER name in left side of sql developer screen
