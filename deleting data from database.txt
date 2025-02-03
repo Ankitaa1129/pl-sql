@@ -1,0 +1,10 @@
+-- deleting data of customer with customer id 16
+
+
+DECLARE
+c_id customer.customer_id%type :=16;
+BEGIN
+DELETE FROM customer
+WHERE customer_id = c_id;
+COMMIT;
+END;
