@@ -1,0 +1,24 @@
+an error condition during a program execution is called as exception in PL/SQL.
+
+we can catch that errors using exception block in the program and an appropriate action is taken against the error 
+condition.
+
+there are two types of exception
+
+1. system-define exception
+2. user-define exception
+
+declare
+
+begin
+
+exception
+
+when this then
+this
+when this then
+this
+when other
+then this 
+
+end;
