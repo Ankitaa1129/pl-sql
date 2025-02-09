@@ -1,0 +1,77 @@
+A package is a schema object that groups logically related PL/SQL types,items and subprograms like
+ procedure and funtion.
+
+packages usually have two types 
+1. specification
+2.Body
+
+
+create or replace package pack_name
+AS
+program1_header;
+program2_header;
+program3_header;
+
+END pack_name;
+
+
+--lets create a package
+
+--i have 3 function and 4 procedure which i created and all are related to customers  so lets group it in 
+customer package--------------------------
+
+
+
+
+
+
+
+create or replace package customer
+as
+
+procedure add_customer
+(
+c_id IN OUT NUMBER,
+c_fname IN VARCHAR2,
+c_lname IN VARCHAR2,
+c_mname IN VARCHAR2,
+c_add1 IN VARCHAR2,
+c_add2 IN VARCHAR2,
+c_city IN VARCHAR2,
+c_country IN VARCHAR2,
+c_date_added IN DATE,
+c_region IN VARCHAR2
+);
+
+procedure display_names;
+
+procedure get_customer
+(
+c_id IN NUMBER
+);
+
+
+-- here totally 3 procedure we packed in 
+-- a package names customer
+
+-- now adding function
+
+FUNCTION find_salescount
+(
+p_sales_date IN DATE
+)RETURN NUMBER;
+
+FUNCTION get_names
+(
+custid IN NUMBER
+)
+RETURN sys_refcursor;
+
+--declared two function and three procedure 
+-- in this package
+
+END customer;
+
+
+
+-- this is how we logically relate all our program together
