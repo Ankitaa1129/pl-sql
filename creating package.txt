@@ -75,3 +75,12 @@ END customer;
 
 
 -- this is how we logically relate all our program together
+
+
+
+upper written only package names 
+
+-- now we have to create package body where we just add whole procedure codes.... in body we add whole code of
+procedure.........
+
+create or replace package body customer_package
