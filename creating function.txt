@@ -1,0 +1,24 @@
+difference between stored procedure and stored function is that 
+function returns a value but procedure does not return any value
+
+
+---lets learn about function
+
+
+--- functionssssss
+
+create or replace function find_empdate
+(
+p_empdate in date
+)return number  
+
+as
+num_of_emp number := 0;
+begin
+
+select count(*) into num_of_emp from emp
+where hiredate=p_empdate;
+
+return num_of_emp;
+
+end find_empdate;
