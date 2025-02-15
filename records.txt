@@ -1,0 +1,37 @@
+A record is a composite datatype , which means that it can hold more than one piece of information , as compared to a scalar datatype , 
+such as a number or string.
+
+advantage of record:
+1. it enables you to write code that is simple,clean,easy to maintain.
+
+2. rather than work with long lists of variables or parameters,you can work  with a record that contains all that information.
+
+this is report
+
+
+
+create or replace procedure new_procedure
+(
+emp_id in emp.empno%type
+)
+is
+c_rec emp%rowtype;
+begin
+select empno,ename,job,mgr,hiredate,sal,comm,deptno     (or use select * )
+
+into c_rec 
+from emp
+where empno=emp_id;
+
+DBMS_OUTPUT.PUT_LINE('Employee number is : ' || c_rec.emp_no);
+DBMS_OUTPUT.PUT_LINE('Employee name is : ' || c_rec.emp_name);
+DBMS_OUTPUT.PUT_LINE('Employee job is : ' || c_rec.job);
+DBMS_OUTPUT.PUT_LINE('Employee manager is : ' || c_rec.emp_mgr);
+DBMS_OUTPUT.PUT_LINE('Employee hiredate is : ' || c_rec.hiredate);
+DBMS_OUTPUT.PUT_LINE('Employee sal is : ' || c_rec.salary);
+DBMS_OUTPUT.PUT_LINE('Employee commision is : ' || c_rec.commission);
+DBMS_OUTPUT.PUT_LINE('Employee department number is : ' || c_rec.deptno);
+end;
+
+
+execute new_procedure(7566);
