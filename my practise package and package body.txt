@@ -1,0 +1,46 @@
+create table practise_subjects
+(
+sub_name varchar2(30),
+sub_id number
+);
+
+insert into practise_subjects values('hindi',1);
+insert into practise_subjects values('english',2);
+
+select * from practise_subjects;
+
+
+
+
+
+
+--- creating package
+
+
+CREATE OR REPLACE PACKAGE practise_subjects_pkg IS
+    PROCEDURE insert_subject
+    (
+    errbuff OUT NOCOPY VARCHAR2,
+    retcode out NoCOPY VARCHAR2,
+    p_sub_name IN VARCHAR2,
+    p_sub_id IN NUMBER
+    );
+END practise_subjects_pkg;
+
+
+-- Package Body
+CREATE OR REPLACE PACKAGE BODY practise_subjects_pkg IS
+
+    PROCEDURE insert_subject
+    (
+      errbuff OUT NOCOPY VARCHAR2,
+    retcode out NoCOPY VARCHAR2,
+    p_sub_name IN VARCHAR2,
+    p_sub_id IN NUMBER
+    ) IS
+    BEGIN
+        INSERT INTO practise_subjects (sub_name, sub_id)
+        VALUES (p_sub_name, p_sub_id);
+    END insert_subject;
+
+END practise_subjects_pkg;
