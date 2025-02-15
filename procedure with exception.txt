@@ -1,0 +1,26 @@
+create or replace procedure get_employee
+(
+emp_id in number
+)
+as 
+emp_name emp.ename%type;
+emp_job emp.job%type;
+begin
+select ename,job into emp_name,emp_job from emp
+where empno=emp_id;
+
+DBMS_OUTPUT.PUT_LINE('name is : '|| emp_name);
+DBMS_OUTPUT.PUT_LINE('empjob is : '||  emp_job);
+exception
+when no_data_found then 
+DBMS_OUTPUT.PUT_LINE('no such customer exist');
+when too_many_rows then
+DBMS_OUTPUT.PUT_LINE('too many rows found');
+when others then 
+DBMS_OUTPUT.PUT_LINE('error error');
+end;
+
+
+execute get_employee(7566);
+
+
