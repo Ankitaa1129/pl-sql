@@ -1,0 +1,30 @@
+create or replace function find_empcount
+(
+p_emp_date in date
+)return number
+as
+num_of_emp number :=0;
+
+begin 
+select count(*) into num_of_emp  from emp
+where hiredate=p_emp_date;
+
+return num_of_emp;
+end find_empcount;
+
+
+
+-- calling function
+
+select find_empcount(TO_DATE('1981-06-09', 'YYYY-MM-DD')) from emp;   --1st way
+
+
+
+DECLARE
+    emp_count NUMBER;
+BEGIN
+    emp_count := find_empcount(TO_DATE('1981-06-09', 'YYYY-MM-DD'));
+    DBMS_OUTPUT.PUT_LINE('Number of employees hired on the given date: ' || emp_count);
+END;
+
+--2nd way
