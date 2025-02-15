@@ -23,6 +23,11 @@ into c_rec
 from emp
 where empno=emp_id;
 
+
+c_rec.ename:='ankita';
+
+-- using this we change the ename of records so ename changes to ankita in output
+
 DBMS_OUTPUT.PUT_LINE('Employee number is : ' || c_rec.emp_no);
 DBMS_OUTPUT.PUT_LINE('Employee name is : ' || c_rec.emp_name);
 DBMS_OUTPUT.PUT_LINE('Employee job is : ' || c_rec.job);
