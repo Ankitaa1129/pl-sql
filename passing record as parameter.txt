@@ -1,0 +1,32 @@
+create or replace procedure process_emp
+(
+emp_id in emp.empno%type
+)
+as
+c_rec emp%rowtype;
+begin
+select * into c_rec from emp
+where empno=emp_id;
+
+show_emps(c_rec);
+
+end;
+
+
+--here we create a procedure and we pass a procedure as parameter to it 
+
+
+-- or we can say that we are passing record as parameter
+
+create procedure show_emps
+(
+emp_in in emp%rowtype
+)
+is
+begin 
+DBMS_OUTPUT.PUT_LINE('name of emp is : ' || emp_in.ename);
+DBMS_OUTPUT.PUT_LINE('number of emp is : ' || emp_in.empno);
+
+end;
+
+execute process_emp(7566);
