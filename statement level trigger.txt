@@ -1,0 +1,21 @@
+-- statement level trigger
+
+create trigger customer_before_update
+ before update
+ on customer
+ 
+ declare 
+ new_username varchar2(50);
+ 
+ begin
+ --lets find the user who is performing this action
+ 
+ select user into new_username from dual;
+ 
+ insert into NEW_AUDIT_TABLE(TABLE_NAME ,USERID,OPERATION_DATE ,OPERATION)
+ values ('customer',new_username,sysdate,'before user operation');
+ 
+ end;
+ 
+ 
+ ---commit is not allowed in triggers
