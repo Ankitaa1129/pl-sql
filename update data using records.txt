@@ -1,0 +1,34 @@
+create or replace procedure process_emp
+(
+emp_id in emp.empno%type
+)
+as
+c_rec emp%rowtype;
+begin
+select * into c_rec from emp
+where empno=emp_id;
+
+c_rec.ename:='ankita';
+
+show_emps(c_rec);
+
+end;
+
+create or replace procedure show_emps
+(
+emp_in in emp%rowtype
+)
+is
+begin 
+
+update emp set row = emp_in where empno=emp_in.empno;
+commit;
+
+end;
+
+execute process_emp(7566);
+
+select * from emp;
+
+
+so thats how we updated data using records.
