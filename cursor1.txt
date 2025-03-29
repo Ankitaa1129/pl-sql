@@ -16,3 +16,34 @@ dbms_output.put_line("yes these are cursor" || l_name)
 close c;
 
 end;
+
+
+for fetching more than 1 data
+
+just add loop
+
+
+declare
+
+cursor c is select first_name , last_name
+ from customer
+   wher customer_id=c_id;
+
+begin
+open c;
+
+loop
+
+fetch c;
+into f_name, l_name
+
+exit when c%notfound;
+
+dbms_output.put_line("yes these are cursor" || f_name)
+dbms_output.put_line("yes these are cursor" || l_name)
+
+end loop;
+
+close c;
+
+end;
