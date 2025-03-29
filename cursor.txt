@@ -1,0 +1,5 @@
+oracle creates a memory area called as context area ,for processing an SQL statement,which contains all
+information needed for processing the statement.
+
+a cursor is a pointer to this context area.PL/SQL controls the context area through a cursor . a cursor  holds the rows(one or more)
+returned by a sql statement. the set of rows the cursor holds is reffered to as the active set.
